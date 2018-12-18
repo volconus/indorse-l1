@@ -14,8 +14,6 @@ const morgan = require('morgan');
 const cors = require('cors');
 const colors = require('colors');
 
-var modelAuth = require('./app/public/model/auth');
-modelAuth = new modelAuth();
 
 /*
     Config
@@ -85,18 +83,13 @@ app.all('*', function (req, res, next) {
         err: "Route not found."
     });
 });
-/*
-app.all('/:clsname/:method', function (req, res) {
-    helper.routerRoutine(req.params.clsname, res, req);
-});
-
-app.all('/:clsname/:method/:var1', function (req, res) {
-    helper.routerRoutine(req.params.clsname, res, req);
-});*/
 
 /* 
     Session Controller
 */
+
+var modelAuth = require('./app/public/model/auth');
+modelAuth = new modelAuth();
 setInterval(function () {
     modelAuth.clearDeadSessions(global.conf.server.sessionTimeoutSeconds)
         .then(data => {
