@@ -68,7 +68,7 @@ module.exports = class {
                     post.password = this.helper.doMd5(post.password);
                     this.model.insert(post)
                         .then(user => {
-                            post.email = 'volkan.muhtar@gmail.com'; // Test manipulation
+                            // post.email = 'volkan.muhtar@gmail.com'; // Test manipulation
 
                             this.helper.sendMail(post.email, 'Your verification code', 'Hi, <a href="http://' + global.conf.server.domain + ':' + global.conf.server.port + '/user/verify/' + user.id + '/' + post.verify_code + '">Click here</a> for verify your account.')
                                 .then(result => {
