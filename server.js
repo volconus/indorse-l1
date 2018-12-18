@@ -7,6 +7,7 @@
     System Files  
 */
 const http = require('http');
+const https = require('https');
 const express = require('express');
 const bodyParser = require('body-parser');
 const helper = require('./sys/helper');
@@ -21,6 +22,10 @@ const colors = require('colors');
 const fs = require('fs');
 const ini = require('ini');
 global.conf = ini.parse(fs.readFileSync('./config.ini', 'utf-8'));
+var privateKey  = fs.readFileSync('./ssl/localhost.key', 'utf8');
+var certificate = fs.readFileSync('./ssl/localhost.cert', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+
 
 /* 
     Initiate
@@ -36,9 +41,13 @@ app.use(function (req, res, next) {
     helper.sessionController(req, res, next);
 });
 
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(global.conf.server.https_port);
+
 app.listen(global.conf.server.port, global.conf.server.ip, function () {
     console.log("Server Date:", new Date());
-    console.log("Check URL: http://" + global.conf.server.ip + ':' + global.conf.server.port);
+    console.log("API: http://" + global.conf.server.ip + ':' + global.conf.server.port);
+    console.log("API (with SSL): https://" + global.conf.server.ip + ':' + global.conf.server.https_port);
 });
 
 /*

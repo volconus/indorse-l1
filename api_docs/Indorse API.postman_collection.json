@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "5dd49762-4877-4445-a252-e0a83535efb6",
+		"name": "Indorse API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Public",
+			"item": [
+				{
+					"name": "Authorization",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "volkan.muhtar@indorse.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1924/auth/login",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1924",
+									"path": [
+										"auth",
+										"login"
+									]
+								},
+								"description": "This method for login to system."
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Account",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1924/user/verify/20/416e217061cd3e9970b33132afefa776d534d22d",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1924",
+									"path": [
+										"user",
+										"verify",
+										"20",
+										"416e217061cd3e9970b33132afefa776d534d22d"
+									]
+								},
+								"description": "This method verify to account via E-Mail verification link."
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "noauth"
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2be7580f-e931-4f59-80d3-0134426d98be",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "705ee2fb-19da-40a3-b7fd-2a0f5ab2b8cf",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Signup",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "volkan.muhtar@indorse.com",
+											"description": "E-Mail",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123",
+											"description": "Password",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "Eddard",
+											"description": "Firstname",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Stark",
+											"description": "Lastname",
+											"type": "text"
+										},
+										{
+											"key": "note",
+											"value": "Test Account",
+											"description": "Note",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1924/user/signup",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1924",
+									"path": [
+										"user",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6c74a7e8-b9d8-4d39-8fe0-6de0b7fc5634",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5c4b8584-a0f1-4528-a808-7640e40532e3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

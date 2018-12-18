@@ -2,6 +2,11 @@
 
 This project developed for Indorse Hiring.
 
+
+### Documentetion (Postman)
+
+https://documenter.getpostman.com/view/5560754/Rzfnj6mk
+
 ### Installing
 
 This application using PostgreSQL Server. You should be import a sql file to database on this path : ./sql/public.sql
@@ -34,6 +39,7 @@ And set to Domain, IP or Port on this config file.
 domain = 127.0.0.1
 ip = 127.0.0.1
 port = 1923
+https_port = 1924
 version = 0.1
 ```
 
